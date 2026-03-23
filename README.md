@@ -42,9 +42,7 @@ python DenseNet-121.py
 python DenseNet-121_GN.py
 python ResNet-50.py
 python ResNet-50_GN.py
-python EfficientNet-B0.py
-python ConvNeXt.py
-python Vision-Transformer.py
+python Gaussian.py
 ```
 
 ## Jupyter Notebook Analizleri
