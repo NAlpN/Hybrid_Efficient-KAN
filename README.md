@@ -1,26 +1,27 @@
-# [cite_start]Hybrid Efficient-KAN: Koroid Tümörlerinin Sınıflandırılması için Çok Modlu Bir Derin Öğrenme Çerçevesi [cite: 1]
+# Hybrid Efficient-KAN: Koroid Tümörlerinin Sınıflandırılması için Çok Modlu Bir Derin Öğrenme Çerçevesi
 
-[cite_start]Bu depo, nadir görülen koroid tümörlerinin (melanom, hemanjiom ve metastatik karsinom) sınıflandırılmasında karşılaşılan eksik modalite ve sınıf dengesizliği problemlerinin ele alınması amacıyla geliştirilen **Hybrid Efficient-KAN** modelinin resmi uygulamasını ve ablasyon çalışmalarını içermektedir[cite: 4].
+Bu depo, nadir görülen koroid tümörlerinin (melanom, hemanjiom ve metastatik karsinom) sınıflandırılmasında karşılaşılan eksik modalite ve sınıf dengesizliği problemlerinin ele alınması amacıyla geliştirilen **Hybrid Efficient-KAN** modelinin resmi kodlarını ve ablasyon çalışmalarını içermektedir.
 
 ## 📌 Proje Özeti
-[cite_start]Önerilen modelde, özellik çıkarımı aşamasında parametre verimliliği yüksek EfficientNet-B0 mimarisi kullanılırken sınıflandırma aşamasında öğrenilebilir aktivasyon fonksiyonlarına sahip Kolmogorov–Arnold Ağları (KAN) kullanılmıştır[cite: 5]. [cite_start]Elde edilen bulgular, çok modlu tıbbi görüntüleme verilerinin birlikte modellenmesinin tanısal doğruluğu anlamlı ölçüde artırdığını göstermektedir[cite: 8].
+Önerilen Hybrid Efficient-KAN modelinde, özellik çıkarımı aşamasında parametre verimliliği yüksek EfficientNet-B0 mimarisi, sınıflandırma aşamasında ise öğrenilebilir aktivasyon fonksiyonlarına sahip Kolmogorov–Arnold Ağları (KAN) kullanılmıştır. Geleneksel CNN mimarileri ile yüksek temsilli özellikler elde edilirken, KAN’ın esnek yapısı sayesinde eksik modalite problemine karşı daha dayanıklı, lokalize ve sağlam bir öğrenme süreci sağlanmıştır.
 
-## 🔬 Veri Seti
-[cite_start]Bu çalışmada 750 hastaya ait görüntüleri içeren CTI (Choroid Tri-Modal Imaging) veri seti kullanılmıştır[cite: 60, 61]. [cite_start]Model, çoklu modalite mimarisi sayesinde aşağıdaki üç farklı görüntüleme tipini eşzamanlı olarak işler[cite: 63]:
-* [cite_start]**FA (Flöresein Anjiyografi):** Retina ve yüzeyel damar ağının incelenmesi[cite: 23].
-* [cite_start]**ICGA (İndosiyanin Yeşili Anjiyografisi):** Koroidin daha derin vasküler yapılarının görüntülenmesi[cite: 23].
-* [cite_start]**US (Oküler Ultrasonografi):** Tümörün morfolojik yapısı, iç yankılanma özellikleri ve akustik yoğunluğu[cite: 24].
+## 🔬 Veri Seti (CTI Dataset)
+Model, tanısal doğruluğu en üst düzeye çıkarmak için 750 hastadan elde edilen üç farklı tıbbi görüntüleme modalitesini eşzamanlı olarak işler:
+* **FA (Flöresein Anjiyografi):** Retina ve yüzeyel damar ağının incelenmesi.
+* **ICGA (İndosiyanin Yeşili Anjiyografisi):** Koroidin daha derin vasküler yapılarının görüntülenmesi.
+* **US (Oküler Ultrasonografi):** Tümörün morfolojik yapısı ve akustik yoğunluğu.
 
-## 🚀 Performans
-[cite_start]Önerilen **EfficientNet-B0 (Zero Padding)** konfigürasyonu ile gerçekleştirilen testlerde aşağıdaki yüksek performans metrikleri elde edilmiştir[cite: 79]:
-* [cite_start]**Doğruluk (Accuracy):** %94,83 [cite: 79]
-* [cite_start]**Özgüllük (Specificity):** %97,87 [cite: 79]
-* [cite_start]**Kesinlik (Precision):** %92,86 [cite: 79]
-* [cite_start]**Hassasiyet (Sensitivity):** %90,81 [cite: 79]
-* [cite_start]**F1-Skoru:** %90,81 [cite: 79]
+## 🚀 Performans ve Ablasyon Çalışmaları
+Farklı derin öğrenme mimarileri (DenseNet-121, ResNet-50) ve veri çoğaltma stratejileri (Zero Padding, Gaussian Noise, Diffusion) ile gerçekleştirilen kapsamlı deneyler sonucunda, önerilen **Hybrid Efficient-KAN (Zero Padding)** modeli en yüksek performansı sergilemiştir:
+* **Doğruluk (Accuracy):** %94.83
+* **Özgüllük (Specificity):** %97.87
+* **Kesinlik (Precision):** %92.86
+* **Hassasiyet (Sensitivity):** %90.81
+* **F1-Skoru:** %90.81
 
-## ⚙️ Kurulum ve Çalıştırma (Run)
+## ⚙️ Kurulum ve Çalıştırma
 
-1) Gerekli bağımlılıkları yükleyin:
+**1. Gereksinimlerin Yüklenmesi:**
+Projeyi klonladıktan sonra gerekli kütüphaneleri yükleyin:
 ```bash
 pip install -r requirements.txt
